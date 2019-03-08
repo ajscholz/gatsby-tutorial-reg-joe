@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Title from "../Globals/Title"
 
-const info = () => {
+const info = props => {
   return (
     <section className="py-5">
       <div className="container">
@@ -17,11 +17,13 @@ const info = () => {
               fugiat, unde, nihil eum blanditiis odit nostrum quia ipsa, beatae
               sunt enim aliquam atque? Placeat!
             </p>
-            <Link to="/about">
-              <button className="btn text-uppercase btn-yellow">
-                About Page
-              </button>
-            </Link>
+            {props.linkPath ? (
+              <Link to={`${props.linkPath}`}>
+                <button className="btn btn-yellow text-uppercase">{`${
+                  props.linkPath
+                } Page`}</button>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>
